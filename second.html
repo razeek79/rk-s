@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="rk.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Lobster&family=Monoton&family=Orbitron&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Press+Start+2P&family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>hhh</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><h1 style="font-family: monoton; font-size: 28px; font-weight: bold;">RK</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Progress</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Explore Our Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="follow.html">Follow us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 order-2 order-md-1">
+                    <div class="d-md-none d-block">
+                        <h1 class="secondmh">Make your brand as a mark with
+                        <span class="typed-text"></span><span class="cursor"></span></h1>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <h1 class="secondmh">Make your brand as a mark with
+                        <span class="typed-text"></span><span class="cursor"></span></h1>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-1 order-md-2">
+                    <img src="https://img.freepik.com/free-vector/graphic-designer-workplace_52683-5307.jpg" alt="Design Image" class="secondimg d-none d-md-block">
+                    <img src="https://img.freepik.com/free-vector/graphic-designer-workplace_52683-5307.jpg" alt="Design Image" class="secondimgsm d-block d-md-none mt-5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const words = ["Creative Posters", "Creative Flex", "Stylish Logo", "Visiting Cards", "Brochures", "Banners"];
+        const typedText = document.querySelectorAll(".typed-text");
+        const cursor = document.querySelectorAll(".cursor");
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function updateAllTyped(text) {
+            typedText.forEach(el => el.textContent = text);
+        }
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                charIndex--;
+            } else {
+                charIndex++;
+            }
+
+            updateAllTyped(currentWord.substring(0, Math.max(0, charIndex)));
+
+            let typingSpeed = isDeleting ? 60 : 120;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typingSpeed = 1000; // pause after full word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typingSpeed = 300;
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+</html>
