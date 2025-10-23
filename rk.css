@@ -164,3 +164,48 @@
 .followicon {
     height: 60px;
 }
+
+/* Mobile navbar visibility fixes ------------------------------------------------- */
+/* Ensure the navbar and its collapsed menu are visible above page content */
+.navbar {
+    z-index: 1050; /* bring navbar above carousels/other elements */
+}
+
+/* Provide a safe background for the collapsed menu so links are visible */
+.navbar-collapse {
+    background-color: #f8f9fa; /* matches .bg-light */
+}
+
+/* Make the collapsed menu display when Bootstrap toggles the .show class.
+   Use !important to override any third-party resets (Tailwind preflight or others).
+*/
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: relative;
+        display: none; /* default collapsed state */
+    }
+    .navbar-collapse.show {
+        display: block !important;
+        padding: 0.5rem 1rem;
+    }
+    /* General override for other collapse elements that might be hidden by resets */
+    .collapse.show {
+        display: block !important;
+    }
+    .navbar-nav .nav-link {
+        color: #212529 !important; /* dark link color to be readable on light bg */
+        padding: 0.5rem 0;
+        display: block;
+    }
+    /* Slightly simplify the toggler visuals on small screens */
+    .navbar-toggler {
+        border: none;
+    }
+}
+
+/* Fallback toggler icon in case Bootstrap's .navbar-toggler-icon background-image
+   has been overridden by other styles (helps the hamburger remain visible). */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/* End of mobile navbar visibility fixes ------------------------------------------------- */
