@@ -169,3 +169,58 @@
 .followicon {
     height: 60px;
 }
+
+/* Mobile navbar overrides: position the opened menu above content, stack links,
+   and ensure readable link colors. These rules are intentionally specific
+   and small-screen targeted so they don't affect desktop layout. */
+/* make navbar positioned so absolute children (collapsed menu) align properly */
+.navbar {
+    position: relative;
+    z-index: 1050; /* bring navbar above carousels/other elements */
+}
+
+@media (max-width: 991.98px) {
+    /* ensure collapse shows as an overlay when toggled */
+    .navbar-collapse.show {
+        display: block !important;
+        padding: 0.5rem 1rem;
+        position: absolute; /* overlay the page content */
+        top: 100%; /* place it just below the navbar */
+        left: 0;
+        right: 0;
+        z-index: 1100; /* be above most page content */
+        background-color: #f8f9fa; /* match .bg-light */
+    }
+
+    /* Force vertical stacking and full-width links in collapsed mode */
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100%;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+    .navbar-nav .nav-link {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        color: #212529 !important; /* dark link color */
+        background: transparent;
+    }
+    .navbar-toggler {
+        border: none;
+    }
+}
+
+/* General override for other collapse elements that might be hidden by resets */
+.collapse.show {
+    display: block !important;
+}
+
+/* Fallback toggler icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/*phone view edits*/
+
